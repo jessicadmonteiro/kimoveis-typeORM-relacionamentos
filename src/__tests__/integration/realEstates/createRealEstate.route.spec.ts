@@ -22,7 +22,7 @@ describe('POST /realEstate', () => {
   it('Success: Must be able to create real estates - Admin token - Full body', async () => {
     const { categoryToCreate, ...payload } =
       createRealEstateRouteMock.realEstateComplete;
-
+    
     const category = await AppDataSource.getRepository(Category).save(
       categoryToCreate
     );
@@ -31,7 +31,7 @@ describe('POST /realEstate', () => {
       .post(baseUrl)
       .set('Authorization', `Bearer ${tokenMock.genToken(true, 1)}`)
       .send({ ...payload, categoryId: category.id });
-
+     
     const expectResults = {
       status: 201,
       expectBody: { ...payload, category },

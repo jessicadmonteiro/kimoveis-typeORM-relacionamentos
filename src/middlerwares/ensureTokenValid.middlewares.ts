@@ -7,6 +7,7 @@ const ensureTokenValidMiddleware = (req: Request, res: Response, next: NextFunct
     let token = req.headers.authorization
 
     if(!token){
+
         throw new AppError("Missing bearer token", 401)
     }
 
@@ -15,6 +16,7 @@ const ensureTokenValidMiddleware = (req: Request, res: Response, next: NextFunct
     jwt.verify(token, process.env.SECRET_KEY!, (error, decoded: any) =>{
         
         if(error){
+            
             throw new AppError(error.message, 401) 
         }
 

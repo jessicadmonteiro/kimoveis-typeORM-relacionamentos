@@ -1,32 +1,32 @@
 import { z } from "zod"
-import { createAddressesSchema } from "./address.schemas"
+import { createAddressesSchema, returnAddressesSchema } from "./address.schemas"
+import { returnCategorySchema } from "./category.schemas"
 
-const createRealEstateSchema = z.object({
-    value: z.number(),
-    size: z.number().int()
+
+const createRealStateSchema = z.object({
+    value: z.number().multipleOf(0.01).or(z.string()),
+    size: z.number().int().gt(0),
+    address: createAddressesSchema,
+    categoryId: z.number(),
+
 })
 
-const returnRealEstateSchema = createRealEstateSchema.extend({
+const returnRealEstateSchema = z.object({
+    value: z.number().multipleOf(0.01).or(z.string()),
+    size: z.number().int().gt(0),
+    address: returnAddressesSchema,
+    category: returnCategorySchema,
     id: z.number(),
     sold: z.boolean(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
-}).omit({
-    sold: true,
-    createdAt: true,
-    updatedAt: true
+    createdAt: z.string(),
+    updatedAt: z.string()
 })
 
 
-const createRealStateObjectAddressSchema = createRealEstateSchema.extend({
-    address: createAddressesSchema,
-})
-
-const arrayRealEstateSchema = createRealStateObjectAddressSchema.array()
+const arrayRealEstateSchema = returnRealEstateSchema.array()
 
 export {
-    createRealEstateSchema,
-    returnRealEstateSchema,
-    createRealStateObjectAddressSchema,
-    arrayRealEstateSchema
+    createRealStateSchema,
+    arrayRealEstateSchema,
+    returnRealEstateSchema
 }

@@ -5,8 +5,9 @@ import { readRealEstateService } from "../services/realEstate/readRealEstate.ser
 const createRealEstateController = async (req: Request, res: Response): Promise<Response> => {
     
     const data = req.body
+    const categoryId = req.body.categoryId
   
-    const newRealEstate = await createRealEstateService(data)
+    const newRealEstate = await createRealEstateService(data, categoryId)
 
     return res.status(201).json(newRealEstate)
 }

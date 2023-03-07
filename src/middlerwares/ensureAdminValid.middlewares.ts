@@ -6,6 +6,7 @@ const ensureAdminMiddleware = async (req: Request, res: Response, next: NextFunc
     const authenticatedUser = req.user.admin
 
     if(!authenticatedUser){
+        
         throw new AppError("Insufficient permission", 403)
     }
 

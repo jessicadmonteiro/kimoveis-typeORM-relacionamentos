@@ -15,6 +15,7 @@ const readRealEstateService = async (): Promise<iRealEstateArray> => {
     return realEstate
 }
 
+
 export {
     readRealEstateService
 }
