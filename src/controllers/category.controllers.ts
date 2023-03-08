@@ -23,9 +23,9 @@ const readCategoriesController = async (req: Request, res: Response): Promise<Re
 const retriveCategoriesController = async (req: Request, res: Response): Promise<Response> => {
     const idCategory: number = parseInt(req.params.id)
 
-    const categries = await retriveCategoriesService(idCategory)
+    const categories = await retriveCategoriesService(idCategory)
 
-    return res.json(categries)
+    return res.json(categories)
 }
 
 

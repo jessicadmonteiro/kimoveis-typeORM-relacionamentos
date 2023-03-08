@@ -6,10 +6,12 @@ import{
     UpdateDateColumn,
     OneToOne,
     ManyToOne,
-    JoinColumn
+    JoinColumn,
+    OneToMany
 } from "typeorm"
 import { Address } from "./address.entity"
 import { Category } from "./category.entity"
+import { Schedule } from "./schedule.entity"
 
 @Entity("real_estate")
 class RealEstate {
@@ -38,6 +40,9 @@ class RealEstate {
 
     @ManyToOne(() => Category, (category) => category.realEstate)
     category: Category
+
+    @OneToMany(() => Schedule, (schedules) => schedules.realEstate)
+    schedules: Schedule[]
 }
 
 export {
