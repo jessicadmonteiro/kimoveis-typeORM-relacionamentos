@@ -7,10 +7,10 @@ const createCategoryService = async (categoryData: iCategoryCreate): Promise<Cat
 
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category)
 
-    const category = categoryRepository.create(categoryData)
-    await categoryRepository.save(category)
+    const newCategory = categoryRepository.create(categoryData)
+    await categoryRepository.save(newCategory)
 
-    return category
+    return newCategory
 }
 
 export default createCategoryService

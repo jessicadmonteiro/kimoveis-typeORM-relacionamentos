@@ -4,7 +4,7 @@ import { Category } from "../../entities"
 import { iCategoryArray } from "../../interfaces/category.interfaces"
 import { arrayCategorySchema } from "../../schemas/category.schemas"
 
-const readCategoriesService = async () => {
+const readCategoriesService = async ():Promise<iCategoryArray> => {
 
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category)
 

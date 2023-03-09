@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import { number } from "zod"
 import { iCategoryCreate } from "../interfaces/category.interfaces"
 import createCategoryService from "../services/category/createCategory.services"
 import { readCategoriesService } from "../services/category/readCategories.services"

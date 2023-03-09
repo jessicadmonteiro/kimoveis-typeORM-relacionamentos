@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { AppError } from "../error"
 
-const ensureAdminMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+const ensureAdminMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void>  => {
 
     const authenticatedUser = req.user.admin
 

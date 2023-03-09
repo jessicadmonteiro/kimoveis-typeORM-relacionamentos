@@ -1,9 +1,10 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../data-source"
-import { Category, RealEstate } from "../../entities"
+import { Category} from "../../entities"
 import { AppError } from "../../error"
+import { iCategory } from "../../interfaces/category.interfaces"
 
-const retriveCategoriesService = async (idCategory: number) => {
+const retriveCategoriesService = async (idCategory: number): Promise<iCategory> => {
 
     const categoryRpository: Repository<Category> = AppDataSource.getRepository(Category)
 

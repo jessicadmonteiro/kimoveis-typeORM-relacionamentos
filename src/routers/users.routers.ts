@@ -4,13 +4,13 @@ import {
   deleteUserController,
   readUserController,
   updateUserController,
-} from "../controllers/users.controller"
-import { ensureAdminMiddleware } from "../middlerwares/ensureAdminValid.middlewares"
-import { ensureDataValidMiddleware } from "../middlerwares/ensureDataValid.middlewares"
-import ensureEmailExistsMiddleware from "../middlerwares/ensureEmailExists.middlewares"
-import { ensureTokenValidMiddleware } from "../middlerwares/ensureTokenValid.middlewares"
-import ensureUserExistsMiddleware from "../middlerwares/ensureUserExists.middlewares"
-import { ensureUserOrAdminMiddleware } from "../middlerwares/ensureUserOrAdmin.middlewares"
+} from "../controllers/users.controller";
+import { ensureAdminMiddleware } from "../middlewares/ensureAdminValid.middlewares"
+import { ensureDataValidMiddleware } from "../middlewares/ensureDataValid.middlewares"
+import ensureEmailExistsMiddleware from "../middlewares/ensureEmailExists.middlewares"
+import { ensureTokenValidMiddleware } from "../middlewares/ensureTokenValid.middlewares"
+import ensureUserExistsMiddleware from "../middlewares/ensureUserExists.middlewares"
+import { ensureUserOrAdminMiddleware } from "../middlewares/ensureUserOrAdmin.middlewares"
 import { updateUserSchema, userCreateSchema } from "../schemas/users.schemas"
 
 const userRoutes: Router = Router()

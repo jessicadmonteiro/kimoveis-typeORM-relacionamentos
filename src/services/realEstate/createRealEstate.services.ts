@@ -38,7 +38,4 @@ const createRealEstateService = async (data: iRealEstate, categoryId: number) =>
     return newRealEstate
 }
 
-
-
-
 export default createRealEstateService

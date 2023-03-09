@@ -1,11 +1,8 @@
-
 import { Request, Response, NextFunction } from "express"
 import { Repository } from "typeorm"
 import { AppDataSource } from "../data-source"
 import { User } from "../entities"
 import { AppError } from "../error"
-import { updateUserSchema } from "../schemas/users.schemas"
-
 
 const ensureUserOrAdminMiddleware = async (req: Request, res: Response, next: NextFunction):Promise<Response | void>  => {
 

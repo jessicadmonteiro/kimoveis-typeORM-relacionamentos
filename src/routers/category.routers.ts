@@ -4,10 +4,10 @@ import {
   readCategoriesController,
   retriveCategoriesController,
 } from "../controllers/category.controllers"
-import { ensureAdminMiddleware } from "../middlerwares/ensureAdminValid.middlewares"
-import { ensureDataValidMiddleware } from "../middlerwares/ensureDataValid.middlewares"
-import ensureNameCategoryExistsMiddleware from "../middlerwares/ensureNameCategoryExists.middlewares"
-import { ensureTokenValidMiddleware } from "../middlerwares/ensureTokenValid.middlewares"
+import { ensureAdminMiddleware } from "../middlewares/ensureAdminValid.middlewares"
+import { ensureDataValidMiddleware } from "../middlewares/ensureDataValid.middlewares"
+import ensureNameCategoryExistsMiddleware from "../middlewares/ensureNameCategoryExists.middlewares"
+import { ensureTokenValidMiddleware } from "../middlewares/ensureTokenValid.middlewares"
 import { createCategorySchema } from "../schemas/category.schemas"
 
 const categoryRoutes: Router = Router()
@@ -21,6 +21,6 @@ categoryRoutes.post(
   createCategoryController
 )
 categoryRoutes.get("", readCategoriesController)
-categoryRoutes.get("/:id/realEstate", retriveCategoriesController )
+categoryRoutes.get("/:id/realEstate", retriveCategoriesController)
 
 export default categoryRoutes

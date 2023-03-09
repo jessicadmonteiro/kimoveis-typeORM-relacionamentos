@@ -5,7 +5,7 @@ import { Address } from "../entities"
 import { AppError } from "../error"
 import { createAddressesSchema } from "../schemas/address.schemas"
 
-const ensureAddressExistsMiddlerwares = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const ensureAddressExistsMiddlewares = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 
     const addressRepository: Repository<Address> = AppDataSource.getRepository(Address)
 
@@ -19,8 +19,6 @@ const ensureAddressExistsMiddlerwares = async (req: Request, res: Response, next
         
     })
 
-
-
     if(findAddress){
         throw new AppError("Address already exists", 409)
     }
@@ -28,4 +26,4 @@ const ensureAddressExistsMiddlerwares = async (req: Request, res: Response, next
     return next()
 }
 
-export default ensureAddressExistsMiddlerwares
+export default ensureAddressExistsMiddlewares

@@ -2,8 +2,8 @@ import { Repository } from "typeorm"
 import { AppDataSource } from "../../data-source"
 import { RealEstate, Schedule, User } from "../../entities"
 import { AppError } from "../../error"
-import { iSchedule, iScheduleReturn } from "../../interfaces/schedule.interfaces"
-import { createScheduleSchema, returnScheduleSchema } from "../../schemas/schedule.schemas"
+import { iSchedule} from "../../interfaces/schedule.interfaces"
+import { createScheduleSchema } from "../../schemas/schedule.schemas"
 
 const createScheduleService = async (scheduleData: iSchedule, idUser: number) => {
 
@@ -11,8 +11,6 @@ const createScheduleService = async (scheduleData: iSchedule, idUser: number) =>
     const day = date.getDay()
     const hour = scheduleData.hour
     
-
-  
     const data = createScheduleSchema.parse(scheduleData)
 
     if(day === 0 || day === 6){
@@ -51,7 +49,7 @@ const createScheduleService = async (scheduleData: iSchedule, idUser: number) =>
     })
     await scheduleRepository.save(newSchedule)
 
-    if(Number(hour[0]) < 8 ){
+    if(Number(hour[0]+hour[1]) < 8 || Number(hour[0]+hour[1]) > 18){
         throw new AppError("Invalid hour, available times are 8AM to 18PM", 400)
     }
 

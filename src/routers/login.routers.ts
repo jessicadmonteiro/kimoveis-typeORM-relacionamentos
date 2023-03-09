@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { createLoginController } from "../controllers/login.controllers"
-import { ensureDataValidMiddleware } from "../middlerwares/ensureDataValid.middlewares"
+import { ensureDataValidMiddleware } from "../middlewares/ensureDataValid.middlewares"
 import { createLoginSchema } from "../schemas/login.schemas"
 
 const loginRoutes: Router = Router()

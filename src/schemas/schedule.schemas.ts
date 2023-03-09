@@ -1,4 +1,4 @@
-import { object, z } from "zod"
+import { z } from "zod"
 import { returnRealEstateSchema } from "./realEstate.schemas"
 import { returnUserSchema } from "./users.schemas"
 
@@ -11,12 +11,6 @@ const createScheduleSchema = z.object({
     userId: true
 })
 
-// const returnScheduleSchema = createScheduleSchema.extend({
-//     realEstate: returnRealEstateSchema,
-//     id: z.number(),
-//     userId: z.number()
-// })
-
 const returnScheduleSchema = z.object({
     id: z.number(),
     date: z.string(),
@@ -24,7 +18,6 @@ const returnScheduleSchema = z.object({
     realEstate: returnRealEstateSchema,
     user: returnUserSchema
 })
-
 
 export {
     createScheduleSchema,
